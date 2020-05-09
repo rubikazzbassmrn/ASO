@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!--Template tag load static-->
+    {% load static %}
+
+    <!--Enlace CSS Bootstrap-->
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+
+    <title>ASO | {% block title %} {%endblock%} </title>
+</head>
+<body>
+  {% if not user.is_authenticated %}
+  <section id="lost">
+    <div class="text-center">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¿Perdido?</h4>
+            <p>Debes iniciar sesión para continuar en esta página</p>
+          </div>
+        <img src="{% static 'registration/img/stop.jpg' %}" class="rounded mx-auto d-block" alt="Responsive image" style="width: 100vh;">
+    </div>
+  </section>
+  {% else %}
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ASO</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mi cuenta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        {% block content %} 
+
+        {% endblock %}
+    </main>
+  {% endif %}
+</body>
+<!--Scripts-->
+    <!--JQuery-->
+    <script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+    <!--JS-->
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+</html>

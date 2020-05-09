@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block redirect %} {% endblock %}
+ 
+    <!--Template tag load static-->
+    {% load static %}
+
+    <!--Enlace CSS Bootstrap-->
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+
+    <title>ASO | {% block title %} {%endblock%} </title>
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ASO</a>
+        </nav>
+    </header>
+    <main id="main">
+        {% block content %} 
+
+        {% endblock %}
+    </main>
+</body>
+<!--Scripts-->
+    <!--JQuery-->
+    <script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+    <!--JS-->
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+</html>

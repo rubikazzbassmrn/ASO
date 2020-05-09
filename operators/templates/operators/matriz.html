@@ -1,0 +1,98 @@
+{% extends 'operators/base.html' %}
+{% load static %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row mb-4">
+            <div class="col-lg-9">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="nombre">Nombre</label>
+                          <input type="text" class="form-control" id="nombre">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="rcf">RFC</label>
+                          <input type="text" class="form-control" id="rfc">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <label for="bday">Fecha de nacimiento</label>
+                          <input type="text" class="form-control" id="bday">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="curp">CURP</label>
+                          <input type="text" class="form-control" id="curp">
+                        </div>
+                        <div class="form-group col-md-4 text-center">
+                            <h5>Buscar</h5>
+                            <a href="">
+                                <img src="{% static 'operators/img/search.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <form action="" method="POST">
+                    <a class="btn btn-success btn-lg btn-block" href="{% url 'stepone' %}">Nuevo proceso</a>
+                </form>
+            </div>
+        </div>
+        
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre(s)</th>
+                    <th scope="col">Apellido Paterno</th>
+                    <th scope="col">Apellido Materno</th>
+                    <th scope="col">RFC</th>
+                    <th scope="col">CURP</th>
+                    <th scope="col">Fecha de nacimiento</th>
+                    <th scope="col">Estatus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td> <a href="">Juan Manuel</a> </td>
+                    <td>Rojas</td>
+                    <td>Orihuela</td>
+                    <td>ROOJ970522T20</td>
+                    <td>ROOJ970522HMCJRN08</td>
+                    <td>22/05/1997</td>
+                    <td>Entrega de documentos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
