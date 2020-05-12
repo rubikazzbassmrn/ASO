@@ -5,11 +5,16 @@
   Paso 1
 {% endblock %}
 
+{% block progress %}
+  15%
+{% endblock %}
+
 {% block content %}
   <div class="container mt-5">
     <div class="row">
       <div class="col">
-        <form>
+        <form action="" method="POST">
+          {% csrf_token %}
           <div class="row mb-3">
             <div class="col">
               <label for="name">Ingresa el nombre(s)</label>
@@ -51,6 +56,7 @@
                 {% for states in states %}
                   <option>
                     {{states.state}}
+         
                   </option>
                 {% endfor %}
               </select>
@@ -95,9 +101,15 @@
               </select>
             </div>
           </div>
-          <button type="button" class="btn btn-outline-warning btn-lg btn-block mb-3">Siguiente</button>
+          <button type="submit" class="btn btn-outline-warning btn-lg btn-block mb-3">Siguiente</button>
         </form>
       </div>
     </div>
   </div>
+  
+  <form action="" method="POST"> 
+    {{form.as_p}}
+    {% csrf_token %}
+    <button type="submit">Crear</button>
+  </form>
 {% endblock %}

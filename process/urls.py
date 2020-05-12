@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns = [
     #Process URLs
-    path('stepone', views.stepone, name="stepone")
+    path('stepone', views.stepone, name="stepone"),
+    path('steptwo', views.steptwo, name="steptwo")
+
 ]
