@@ -9,6 +9,8 @@
 
     <!--Enlace CSS Bootstrap-->
     <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <!--Enlace CSS local (Está en app core)-->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 
     <title>ASO | {% block title %} {%endblock%} </title>
 </head>
@@ -25,8 +27,8 @@
   </section>
   {% else %}
     <header id="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">ASO</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-ligth">
+            <a class="navbar-brand" href="#"> <img id="logo-nav" src="{% static 'core/img/logo_mexamerik.png' %}" alt=""> ASO</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">

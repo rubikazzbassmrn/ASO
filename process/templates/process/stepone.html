@@ -1,55 +1,103 @@
-{% extends 'operators/base.html' %}
+{% extends 'process/base.html' %}
 {% load static %}
 
 {% block title %}
-    Paso 1
+  Paso 1
 {% endblock %}
 
 {% block content %}
-<form>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <form>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Ingresa el nombre(s)</label>
+              <input id="name" type="text" class="form-control" placeholder="Nombre(s)">
+            </div>
+            <div class="col">
+              <label for="last_name_p">Ingresa el apellido paterno</label>
+              <input id="last_name_p" type="text" class="form-control" placeholder="Apellido paterno">
+            </div>
+            <div class="col">
+              <label for="last_name_m">Ingresa el apellido materno</label>
+              <input type="text" class="form-control" placeholder="Apellido materno">
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-lg-4">
+              <label for="bday">Fecha de nacimiento</label>
+              <input id="bday" type="date" class="form-control">
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-lg-6">
+              <label for="rfc">Ingrese RFC</label>
+              <input id="rfc" type="text" class="form-control" placeholder="RFC">
+            </div>
+            <div class="col-lg-6">
+              <label for="curp">Ingrese CURP</label>
+              <input id="curp" type="text" class="form-control" placeholder="CURP">
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-lg-6">
+              <label for="inputState">Estado</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecciona una opción</option>
+                {% for states in states %}
+                  <option>
+                    {{states.state}}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <label for="inputState">Municipio</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecciona una opción</option>
+                {% for towns in towns %}
+                  <option>
+                    {{towns.town}}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-lg-4">
+              <label for="inputState">Estado civil</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecciona una opción</option>
+                {% for maritals_status in maritals_status %}
+                  <option>
+                    {{maritals_status.marital_status}}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-lg-4">
+              <label for="inputState">Máximo grado de estudios</label>
+              <select id="inputState" class="form-control">
+                <option selected>Selecciona una opción</option>
+                {% for education_levels in education_levels %}
+                  <option>
+                    {{education_levels.education_level}}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-warning btn-lg btn-block mb-3">Siguiente</button>
+        </form>
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
+  </div>
 {% endblock %}

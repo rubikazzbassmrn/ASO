@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!--Template tag load static-->
+    {% load static %}
+
+    <!--Enlace CSS Bootstrap-->
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <!--Enlace CSS local (Está en app core)-->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+    <title>ASO | {% block title %} {%endblock%} </title>
+</head>
+<body>
+  {% if not user.is_authenticated %}
+  <section id="lost">
+    <div class="text-center">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¿Perdido?</h4>
+            <p>Debes iniciar sesión para continuar en esta página</p>
+          </div>
+        <img src="{% static 'registration/img/stop.jpg' %}" class="rounded mx-auto d-block" alt="Responsive image" style="width: 100vh;">
+    </div>
+  </section>
+  {% else %}
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-ligth">
+            <a class="navbar-brand" href="#"> <img id="logo-nav" src="{% static 'core/img/logo_mexamerik.png' %}" alt=""> ASO</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mi cuenta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'matriz' %}">Regresar</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Grabar</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="main">
+        <aside id="aside">
+            <div class="container">
+                <div class="row">
+                  <div id="asideleft" class="col-lg-3">
+                    <div class="jumbotron">
+                      <h1 class="display-4">Monitor</h1>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p class="mb-5">Progreso</p>
+                    <div class="alert alert-primary" role="alert">
+                      Información general
+                    </div>
+                  </div>
+                  <div class="col-lg-9">
+                    {% block content %}
+
+
+                    {% endblock %}
+                  </div>
+                </div>
+              </div>
+        </aside>
+    </main>
+  {% endif %}
+</body>
+<!--Scripts-->
+    <!--JQuery-->
+    <script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+    <!--JS-->
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+</html>

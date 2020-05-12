@@ -62,34 +62,16 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td> <a href="">Juan Manuel</a> </td>
-                    <td>Rojas</td>
-                    <td>Orihuela</td>
-                    <td>ROOJ970522T20</td>
-                    <td>ROOJ970522HMCJRN08</td>
-                    <td>22/05/1997</td>
-                    <td>Entrega de documentos</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>-</td>
+                    {% for general_informations in general_informations %}
+                      <th scope="row">{{general_informations.id_operator.id}}</th>
+                      <td> <a href="">{{general_informations.id_operator.first_name}}</a> </td>
+                      <td>{{general_informations.id_operator.last_name_p}}</td>
+                      <td>{{general_informations.id_operator.last_name_m}}</td>
+                      <td>{{general_informations.id_operator.rfc}}</td>
+                      <td>{{general_informations.id_operator.curp}}</td>
+                      <td>{{general_informations.id_operator.b_day}}</td>
+                      <td>{{general_informations.id_status}}</td>
+                    {% endfor %}
                   </tr>
                 </tbody>
             </table>
