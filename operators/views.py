@@ -5,5 +5,5 @@ from process.models import *
 # Create your views here.
 
 def matriz(request):
-    general_informations = General_information.objects.all()
-    return render(request, "operators/matriz.html",{'general_informations':general_informations})
+    operators = Operators.objects.all()
+    return render(request, "operators/matriz.html",{'operators':operators})

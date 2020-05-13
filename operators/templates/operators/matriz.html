@@ -62,15 +62,15 @@
                 </thead>
                 <tbody>
                   <tr>
-                    {% for general_informations in general_informations %}
-                      <th scope="row">{{general_informations.id_operator.id}}</th>
-                      <td> <a href="">{{general_informations.id_operator.first_name}}</a> </td>
-                      <td>{{general_informations.id_operator.last_name_p}}</td>
-                      <td>{{general_informations.id_operator.last_name_m}}</td>
-                      <td>{{general_informations.id_operator.rfc}}</td>
-                      <td>{{general_informations.id_operator.curp}}</td>
-                      <td>{{general_informations.id_operator.b_day}}</td>
-                      <td>{{general_informations.id_status}}</td>
+                    {% for operators in operators %}
+                      <th scope="row">{{operators.id}}</th>
+                      <td> <a href="">{{operators.first_name}}</a> </td>
+                      <td>{{operators.id_operator.last_name_p}}</td>
+                      <td>{{operators.id_operator.last_name_m}}</td>
+                      <td>{{operators.id_operator.rfc}}</td>
+                      <td>{{operators.id_operator.curp}}</td>
+                      <td>{{operators.id_operator.b_day}}</td>
+                      <td>{{operators.id_status}}</td>
                     {% endfor %}
                   </tr>
                 </tbody>

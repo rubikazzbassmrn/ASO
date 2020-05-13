@@ -4,7 +4,7 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(General_information)
+admin.site.register(Operators)
 
 admin.site.register(Last_job)
 

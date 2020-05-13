@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #Importar catálogos
 from catalogues.models import *
 #Importar form
@@ -13,21 +13,19 @@ def stepone(request):
     education_levels = Education_level.objects.all()
 
     #Creamos un formulario vacio
-    form = GeneralForm()
-
+    form = OperatorForm()
     #Comprobamos si se ha enviado el formulario
     if request.method == "POST":
         #Añadimos los datos recibidos al formulario
-        form = GeneralForm(request.POST)
+        form = OperatorForm(request.POST)
         # Si el formulario es válido...
         if form.is_valid():
-            # Guardamos el formulario pero sin confirmarlo,
-            # así conseguiremos una instancia para manejarla
-            instancia = form.save(comit=False)
-            # Podemos guardarla cuando queramos
+            # Guardamos la instancia
             instancia.save()
             # Después de guardar redireccionamos a la lista
-            return redirect('matriz')
+            return redirect('process:steptwo')
+    else:
+        form = OperatorForm()
     return render(request, "process/stepone.html", {'form':form, 'states':states, 'towns':towns, 'maritals_status':maritals_status, 'education_levels':education_levels})
 
 def steptwo(request):
