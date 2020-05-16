@@ -6,8 +6,6 @@ from .models import *
 
 admin.site.register(Operators)
 
-admin.site.register(Last_job)
-
-admin.site.register(Actual_job)
-
 admin.site.register(Operator_information)
+
+admin.site.register(Documentation)

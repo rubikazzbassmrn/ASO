@@ -1,0 +1,89 @@
+{% extends 'process/base.html' %}
+{% load static %}
+
+{% block title %}
+  Paso 3
+{% endblock %}
+
+{% block progress %}
+  70%
+{% endblock %}
+
+{% block step %}
+  Documentación
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row mb-3">
+          <div class="col">
+            <label for="name">Ingrese el CURP</label>
+            <br>
+            {{form.id_operator}}
+          </div>
+        </div>
+        <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Ingrese el CURP</label>
+              <br>
+              {{form.curp_file}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Ingrese No. seguro social</label>
+              <br>
+              {{form.secure_number_file}}
+            </div>
+            <div class="col">
+              {{form.secure_number}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-6">
+              <label for="name">Ingrese licencia de manejo</label>
+              <br>
+              {{form.licence_file}}
+            </div>
+            <div class="col-6">
+              {{form.licence}}
+            </div>
+            <div class="col mt-3">
+              <h5>Periodo</h5>
+              <label for="name">Inicio</label> <br>
+              {{form.licence_started}}
+              <br>
+              <label for="name">Vencimiento</label><br>
+              {{form.licence_finished}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Examen psicofisico</label>
+              <br>
+              {{form.psicofisico_file}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Cartas de recomendación</label>
+              <br>
+              {{form.recommendation_letter_file}}
+            </div>
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-outline-success btn-lg btn-block mb-3">Cargar archivos</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -8,3 +8,86 @@
 {% block progress %}
   35%
 {% endblock %}
+
+{% block step %}
+  Información de operación
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Seleccione operador</label>
+              {{form.id_operator}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">¿Por qué tiene interés en laborar en Mexamerik?</label>
+              {{form.id_mexa_interest}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="name">Medio de contacto</label>
+              {{form.id_media}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Tipo de unidad que maneja</label>
+              {{form.id_truck_type}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Última empresa donde laboró</label>
+              {{form.last_job}}
+            </div>
+            <div class="col">
+              <label for="name">Periodo</label>
+              <h6>De</h6>
+              {{form.period_started}}
+              <h6>Hasta</h6>
+              {{form.period_finished}}
+            </div>
+          </div>
+          <hr>
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="name">¿Actualmente labora?</label>
+              {{form.id_status_job}}
+            </div>
+            <div class="col">
+              <label for="name">¿Dónde?</label>
+              {{form.actual_job_where}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-3">
+              <label for="name">¿Actualmente lleva otro proceso?</label>
+              {{form.id_status_process}}
+            </div>
+            <div class="col">
+              <label for="name">¿Dónde?</label>
+              {{form.actual_process_where}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label for="name">Status</label>
+              {{form.id_status}}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-lg btn-block mb-3">Siguiente</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

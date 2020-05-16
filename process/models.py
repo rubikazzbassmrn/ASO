@@ -26,43 +26,44 @@ class Operators(models.Model):
     def __str__(self):
         return "%s %s" % (self.first_name, self.last_name_p)
 
-class Last_job(models.Model):
-    id_operator = models.ForeignKey(Operators, on_delete=models.CASCADE, verbose_name='Operador')
-    last_job = models.CharField(max_length=250, verbose_name='Ultimo trabajo')
-    start_date = models.DateTimeField(null=True, blank=True, verbose_name='Fecha de inicio')
-    fishined_date = models.DateTimeField(null=True, blank=True, verbose_name='Fecha de termino')
-
-    class Meta:
-        verbose_name = 'Ultimo trabajo'
-        verbose_name_plural = 'Ultimos trabajos'
-    
-    def __str__(self):
-        return "%s %s" % (self.id_operator, self.last_job)
-
-class Actual_job(models.Model):
-    id_operator = models.ForeignKey(Operators, on_delete=models.CASCADE, verbose_name='Operador')
-    actual_job = models.CharField(max_length=250, verbose_name='Trabajo actual')
-    start_date = models.DateTimeField(null=True, blank=True, verbose_name='Fecha de inicio')
-
-    class Meta:
-        verbose_name = 'Trabajo actual'
-        verbose_name_plural = 'Trabajos actuales'
-    
-    def __str__(self):
-        return "%s %s" % (self.id_operator, self.actual_job_job)
-
 class Operator_information(models.Model):
     id_operator = models.ForeignKey(Operators, on_delete=models.CASCADE, verbose_name='Operador')
     id_media = models.ForeignKey(Media, on_delete=models.CASCADE, verbose_name='Medio')
-    id_truck_type = models.ForeignKey(Truck_type, on_delete=models.CASCADE, verbose_name='Tipo de unidad')
-    id_last_job = models.ForeignKey(Last_job, on_delete=models.CASCADE, verbose_name = 'Ultimo trabajo')
     id_mexa_interest  = models.ForeignKey(Mexa_interest, on_delete=models.CASCADE, verbose_name='Interes')
-    id_status_job = models.ForeignKey(Status_job, on_delete=models.CASCADE, verbose_name='Estatus job')
-    id_status_process  = models.ForeignKey(Status_process, on_delete=models.CASCADE, verbose_name='Estatus process')
+    id_truck_type = models.ManyToManyField(Truck_type, verbose_name='Tipo de unidad')
+    last_job = models.CharField(max_length=250, verbose_name = 'Ultimo trabajo')
+    period_started = models.DateTimeField(null=True, blank=True, verbose_name='Inicio')
+    period_finished = models.DateTimeField(null=True, blank=True, verbose_name='Termino')
+    id_status_job = models.ForeignKey(Status_job, on_delete=models.CASCADE, verbose_name='¿Está trabajando ahora?')
+    actual_job_where = models.CharField(max_length=250, verbose_name='¿Dónde?', null=True, blank=True)
+    id_status_process = models.ForeignKey(Status_process, on_delete=models.CASCADE, verbose_name='¿Está llevando otro proceso?')
+    actual_process_where = models.CharField(max_length=250, verbose_name='¿Dónde?', null=True, blank=True)
+    id_status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Status')
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Información de operador'
-        verbose_name_plural = 'Informacion de operador'
+        verbose_name = 'Información de operación'
+        verbose_name_plural = 'Informacion de operaciones'
     
     def __str__(self):
-        return self.id_operator
+        return "%s" % (self.id_operator)
+
+class Documentation(models.Model):
+    id_operator = models.ForeignKey(Operators, on_delete=models.CASCADE, verbose_name='Operador')
+    curp_file = models.FileField(upload_to="archivos/", null=True, blank=True)
+    secure_number_file = models.FileField(upload_to="archivos/", null=True, blank=True)
+    secure_number = models.CharField(max_length=250, verbose_name='Digita el número', null=True, blank=True)
+    licence_file = models.FileField(upload_to="archivos/", null=True, blank=True)
+    licence = models.CharField(max_length=250, verbose_name='Ingresa licencia', null=True, blank=True)
+    licence_started = models.DateTimeField(null=True, blank=True, verbose_name='Inicio')
+    licence_finished = models.DateTimeField(null=True, blank=True, verbose_name='Vencimiento')
+    psicofisico_file = models.FileField(upload_to="archivos/", null=True, blank=True)
+    recommendation_letter_file = models.FileField(upload_to="archivos/", null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Documento'
+        verbose_name_plural = 'Documentos'
+    
+    def __str__(self):
+        return "%s" % (self.id_operator)

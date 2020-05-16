@@ -9,96 +9,77 @@
   15%
 {% endblock %}
 
+{% block step %}
+  Información General
+{% endblock %}
+
 {% block content %}
   <div class="container mt-5">
     <div class="row">
       <div class="col">
-        <form action="" method="POST">
+        <form method="POST">
           {% csrf_token %}
           <div class="row mb-3">
             <div class="col">
               <label for="name">Ingresa el nombre(s)</label>
-              <input id="name" type="text" class="form-control" placeholder="Nombre(s)">
+              {{form.first_name}}
             </div>
             <div class="col">
               <label for="last_name_p">Ingresa el apellido paterno</label>
-              <input id="last_name_p" type="text" class="form-control" placeholder="Apellido paterno">
+              {{form.last_name_p}}
             </div>
             <div class="col">
               <label for="last_name_m">Ingresa el apellido materno</label>
-              <input type="text" class="form-control" placeholder="Apellido materno">
+              {{form.last_name_m}}
             </div>
           </div>
           <hr>
           <div class="row mb-3">
             <div class="col-lg-4">
               <label for="bday">Fecha de nacimiento</label>
-              <input id="bday" type="date" class="form-control">
+              {{form.b_day}}
             </div>
           </div>
           <hr>
           <div class="row mb-3">
             <div class="col-lg-6">
               <label for="rfc">Ingrese RFC</label>
-              <input id="rfc" type="text" class="form-control" placeholder="RFC">
+              {{form.rfc}}
             </div>
             <div class="col-lg-6">
               <label for="curp">Ingrese CURP</label>
-              <input id="curp" type="text" class="form-control" placeholder="CURP">
+              {{form.curp}}
             </div>
           </div>
           <hr>
           <div class="row mb-3">
             <div class="col-lg-6">
               <label for="inputState">Estado</label>
-              <select id="inputState" class="form-control">
-                <option selected>Selecciona una opción</option>
-                {% for states in states %}
-                  <option>
-                    {{states.state}}
-         
-                  </option>
-                {% endfor %}
-              </select>
+              {{form.id_state}}
             </div>
             <div class="col-lg-6">
               <label for="inputState">Municipio</label>
-              <select id="inputState" class="form-control">
-                <option selected>Selecciona una opción</option>
-                {% for towns in towns %}
-                  <option>
-                    {{towns.town}}
-                  </option>
-                {% endfor %}
-              </select>
+              {{form.id_town}}
             </div>
           </div>
           <hr>
           <div class="row mb-3">
             <div class="col-lg-4">
               <label for="inputState">Estado civil</label>
-              <select id="inputState" class="form-control">
-                <option selected>Selecciona una opción</option>
-                {% for maritals_status in maritals_status %}
-                  <option>
-                    {{maritals_status.marital_status}}
-                  </option>
-                {% endfor %}
-              </select>
+              {{form.id_marital_status}}
             </div>
           </div>
           <hr>
           <div class="row mb-3">
             <div class="col-lg-4">
               <label for="inputState">Máximo grado de estudios</label>
-              <select id="inputState" class="form-control">
-                <option selected>Selecciona una opción</option>
-                {% for education_levels in education_levels %}
-                  <option>
-                    {{education_levels.education_level}}
-                  </option>
-                {% endfor %}
-              </select>
+              {{form.id_education_level}}
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-lg-4">
+              <label for="inputState">Status</label>
+              {{form.id_status}}
             </div>
           </div>
           <button type="submit" class="btn btn-outline-warning btn-lg btn-block mb-3">Siguiente</button>

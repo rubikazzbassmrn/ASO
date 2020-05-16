@@ -1,0 +1,11 @@
+Video debe durar 2-3min máximo 5 como tope final
+
+*Intro
+*Frase de calendario de mexa.
+*Pequeña descripción: Somos una empresa que contamos con un area de TI e innovacion
+*Entre nuestras aplicaciones contamos con:
+•tms-cortes de todo ##Enfasis en monitor-mapas-partes llamativas##
+•mexapp-cortes de todo
+•guardian "monitoreo de las unidades en linea" - parte importante: notificaciones, videos de cabina
+•bi "aplicacion de analiticos mediante bi" "nueva sucursal automatizada e inteligente."
+•Integracion clientes-provedores --pequeña grafica-"hacemos integracion mediante web-services para compartir información con nuestros clientes"
