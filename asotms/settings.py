@@ -129,8 +129,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 ###Media's Path###
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # # # Auth redirect # # #
 LOGIN_REDIRECT_URL = '/operators/matriz'
