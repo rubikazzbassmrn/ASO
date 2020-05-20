@@ -56,8 +56,8 @@ class Documentation(models.Model):
     secure_number = models.CharField(max_length=250, verbose_name='Digita el número', null=True, blank=True)
     licence_file = models.FileField(upload_to="archivos/", null=True, blank=True)
     licence = models.CharField(max_length=250, verbose_name='Ingresa licencia', null=True, blank=True)
-    licence_started = models.DateTimeField(null=True, blank=True, verbose_name='Inicio')
-    licence_finished = models.DateTimeField(null=True, blank=True, verbose_name='Vencimiento')
+    licence_started = models.DateField(null=True, blank=True, verbose_name='Inicio')
+    licence_finished = models.DateField(null=True, blank=True, verbose_name='Vencimiento')
     psicofisico_file = models.FileField(upload_to="archivos/", null=True, blank=True)
     recommendation_letter_file = models.FileField(upload_to="archivos/", null=True, blank=True)
 

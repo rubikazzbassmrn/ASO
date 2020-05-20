@@ -21,19 +21,6 @@ class OperatorForm(forms.ModelForm):
             'id_education_level',
             'id_status'
         ]
-        labels = {
-            'first_name': 'Ingresa nombre(s)',
-            'last_name_p': 'Ingresa apellido paterno',
-            'last_name_m': 'Ingresa apellido materno',
-            'b_day': 'Fecha de nacimiento',
-            'rfc': 'Ingresa RFC',
-            'curp': 'Ingresa CURP',
-            'id_state': 'Seleccione estado',
-            'id_town': 'Seleccione municipio',
-            'id_marital_status': 'Estado civil',
-            'id_education_level': 'Máximo grado de estudios',
-            'id_status': 'Status'
-        }
         widgets = {
             'first_name': forms.TextInput(attrs={'class':'form-control'}),
             'last_name_p': forms.TextInput(attrs={'class':'form-control'}),
