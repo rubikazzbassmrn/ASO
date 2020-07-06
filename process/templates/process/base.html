@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
     <!--Enlace a CSS local-->
     <link rel="stylesheet" href="{% static 'process/css/styles-f.css' %}">
-
+    <!--CSS de Select2-->
+    <link rel="stylesheet" href="{% static 'core/css/select2/select2.min.css' %}">
 
     <title>ASO | {% block title %} {%endblock%} </title>
 </head>
@@ -81,10 +82,24 @@
         </aside>
     </main>
   {% endif %}
+
+<!--Select Dinámico-->
+
+<!--Fin Select Dinámico-->
+
 </body>
 <!--Scripts-->
     <!--JQuery-->
     <script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+    <!--Select2-->
+    <script src="{% static 'core/js/select2/select2.min.js' %}"></script>
     <!--JS-->
     <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
 </html>
+<!--Script de select2-->
+<script type="text/javascript">
+  $(function(){
+    $('.select2').select2();
+  });
+</script>
+<!--Script de select2-->

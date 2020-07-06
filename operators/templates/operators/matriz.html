@@ -7,82 +7,82 @@
 
 
 {% block content %}
-    <div class="container mt-3">
-        <div class="row mb-4">
-            <div class="col-lg-9">
-              <a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Buscar
-              </a>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="nombre">Nombre</label>
-                          <input type="text" class="form-control" id="nombre">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="rcf">RFC</label>
-                          <input type="text" class="form-control" id="rfc">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <label for="bday">Fecha de nacimiento</label>
-                          <input type="text" class="form-control" id="bday">
-                        </div>
-                        <div class="form-group col-md-4">
-                          <label for="curp">CURP</label>
-                          <input type="text" class="form-control" id="curp">
-                        </div>
-                        <div class="form-group col-md-4 text-center">
-                            <h5>Buscar</h5>
-                            <a href="">
-                                <img src="{% static 'operators/img/search.png' %}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </form>
-                </div>
+  <div class="container mt-3">
+      <div class="row mb-4">
+          <div class="col-lg-9">
+            <a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+              Buscar
+            </a>
+            <div class="collapse show" id="collapseExample">
+              <div class="card card-body">
+                <form method="GET" id="searchform">
+                  <div class="form-row" id="custom-search-input">
+                      <div class="form-group col-md-6">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{request.GET.nombre}}">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="rfc">RFC</label>
+                        <input type="text" class="form-control" id="rfc" name="rfc" value="{{request.GET.rfc}}">
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="bday">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="bday" name="bday" value="{{request.GET.bday}}">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="curp">CURP</label>
+                        <input type="text" class="form-control" id="curp" name="curp" value="{{request.GET.curp}}">
+                      </div>
+                      <div class="form-group col-md-4 text-center">
+                          <h5>Buscar</h5>
+                          <button type="submit">
+                            <img src="{% static 'operators/img/search.png' %}" alt="">
+                          </button>
+                      </div>
+                  </div>
+              </form>
               </div>
             </div>
-            <div class="col-lg-3">
-                <form action="" method="POST">
-                    <a class="btn btn-success btn-lg btn-block" href="{% url 'stepone' %}">Nuevo proceso</a>
-                </form>
-            </div>
-        </div>
-        
-        <div class="row">
-          <h3>Matríz de operadores</h3>
-            <table class="table table-striped">
-                <thead>
+          </div>
+          <div class="col-lg-3">
+              <form action="" method="POST">
+                  <a class="btn btn-success btn-lg btn-block" href="{% url 'stepone' %}">Nuevo proceso</a>
+              </form>
+          </div>
+      </div>
+      
+      <div class="row">
+        <h3>Matríz de operadores</h3>
+          <table class="table table-striped" id="tablaop">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre(s)</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>
+                  <th scope="col">RFC</th>
+                  <th scope="col">CURP</th>
+                  <th scope="col">Fecha de nacimiento</th>
+                  <th scope="col">Estatus</th>
+                </tr>
+              </thead>
+              <tbody>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre(s)</th>
-                    <th scope="col">Apellido Paterno</th>
-                    <th scope="col">Apellido Materno</th>
-                    <th scope="col">RFC</th>
-                    <th scope="col">CURP</th>
-                    <th scope="col">Fecha de nacimiento</th>
-                    <th scope="col">Estatus</th>
+                    {% for operators in operators %}
+                      <th scope="row">{{operators.id}}</th>
+                      <td> <a href="">{{operators.first_name}}</a> </td>
+                      <td>{{operators.last_name_p}}</td>
+                      <td>{{operators.last_name_m}}</td>
+                      <td>{{operators.rfc}}</td>
+                      <td>{{operators.curp}}</td>
+                      <td>{{operators.b_day}}</td>
+                      <td>{{operators.id_status}}</td>
                   </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      {% for operators in operators %}
-                        <th scope="row">{{operators.id}}</th>
-                        <td> <a href="">{{operators.first_name}}</a> </td>
-                        <td>{{operators.last_name_p}}</td>
-                        <td>{{operators.last_name_m}}</td>
-                        <td>{{operators.rfc}}</td>
-                        <td>{{operators.curp}}</td>
-                        <td>{{operators.b_day}}</td>
-                        <td>{{operators.id_status}}</td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
 {% endblock %}

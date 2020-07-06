@@ -15,25 +15,26 @@ class Status(models.Model):
 
 #Modelo States
 class State(models.Model):
-    state = models.CharField(max_length=50, verbose_name='Estado')
+    state_name = models.CharField(max_length=100, verbose_name='Estado')
 
     class Meta:
         verbose_name = 'Estado'
         verbose_name_plural = 'Estados'
 
     def __str__(self):
-        return self.state
+        return self.state_name
 
 #Modelo Towns
 class Town(models.Model):
-    town = models.CharField(max_length=50, verbose_name='Municipio')
+    town_name = models.CharField(max_length=50, verbose_name='Municipio')
+    id_state = models.ForeignKey(State, on_delete=models.CASCADE, verbose_name='Id de estado')
 
     class Meta:
         verbose_name = 'Municipio'
         verbose_name_plural = 'Municipios'
 
     def __str__(self):
-        return self.town
+        return self.town_name
 
 #Modelo Marital_status
 class Marital_status(models.Model):

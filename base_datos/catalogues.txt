@@ -1,0 +1,15 @@
+--Tabla marital_status
+insert into catalogues_marital_status(marital_status)
+values('Soltero'),('Casado'), ('Divorsiado'), ('Viudo');
+
+--Tabla education_level
+insert into catalogues_education_level(education_level)
+values('Primaria'),('Secundaria'), ('Preparatoria'), ('Universidad'), ('Maestria');
+
+--Tabla media
+insert into catalogues_media(media)
+values('Facebook'),('Twitter'), ('Indeed'), ('Talenteca'), ('OCC');
+
+--Tabla truk_type
+insert into catalogues_truck_type(truck_type)
+values('Rigidos'),('Articulado'), ('Frigo´rificos'), ('Cisterna'), ('Cerrado'), ('Doble');
