@@ -7,12 +7,6 @@ from .forms import *
 # Create your views here.
 
 def stepone(request):
-    states = State.objects.all()
-    towns = Town.objects.all()
-    maritals_status = Marital_status.objects.all()
-    education_levels = Education_level.objects.all()
-
-    
     #Comprobamos si se ha enviado el formulario
     if request.method == "POST":
         #Creamos un formulario vacio
@@ -28,7 +22,7 @@ def stepone(request):
             return redirect('steptwo')
     else:
         form = OperatorForm()
-    return render(request, "process/stepone.html", {'form':form, 'states':states, 'towns':towns, 'maritals_status':maritals_status, 'education_levels':education_levels})
+    return render(request, "process/stepone.html", {'form':form})
 
 def steptwo(request):
     #Comprobamos si se ha enviado el formulario

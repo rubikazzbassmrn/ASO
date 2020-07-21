@@ -81,23 +81,24 @@ WSGI_APPLICATION = 'asotms.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-
+#Para conectar a SQLite
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
+#Para conectar a SQL Server
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'ASO',
         'USER': 'sa',
         'PASSWORD': 'jrojas123',
-        'HOST': 'DESKTOP-QPS9SL7',
+        'HOST': 'localhost',
         'PORT': '',
         'OPTIONS': {
-            'driver': 'ODBC Driver 13 for SQL Server',
+            'driver': 'ODBC Driver 17 for SQL Server',
         }
     }
 }

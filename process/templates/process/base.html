@@ -82,11 +82,6 @@
         </aside>
     </main>
   {% endif %}
-
-<!--Select Dinámico-->
-
-<!--Fin Select Dinámico-->
-
 </body>
 <!--Scripts-->
     <!--JQuery-->
@@ -96,10 +91,16 @@
     <!--JS-->
     <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
 </html>
+
 <!--Script de select2-->
-<script type="text/javascript">
+<script>
+
   $(function(){
-    $('.select2').select2();
+    $('select[name="id_state"]').on('change', function(){
+      var id = $(this).val();
+      alert(id)
+    });
   });
+
 </script>
 <!--Script de select2-->

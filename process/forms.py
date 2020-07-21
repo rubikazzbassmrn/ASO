@@ -28,11 +28,11 @@ class OperatorForm(forms.ModelForm):
             'b_day': forms.DateInput(attrs={'type':'date'}),
             'rfc': forms.TextInput(attrs={'class':'form-control'}),
             'curp': forms.TextInput(attrs={'class':'form-control'}),
-            'id_state': forms.Select(attrs={'class':'form-control select2'}),#Colocamos la clase 'select2' para usar el plugin select2
-            'id_town': forms.Select(attrs={'class':'form-control select2'}),
+            'id_state': forms.Select(attrs={'class':'form-control'}),#Colocamos la clase 'select2' para usar el plugin select2
+            'id_town': forms.Select(attrs={'class':'form-control'}),
             'id_marital_status': forms.Select(attrs={'class':'form-control'}),
             'id_education_level': forms.Select(attrs={'class':'form-control'}),
-            'id_status': forms.Select(attrs={'class':'form-control'})
+            'id_status': forms.Select(attrs={'class':'form-control', 'value':'activo'})
         }
 
 class OpinfoForm(forms.ModelForm):

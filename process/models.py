@@ -15,7 +15,7 @@ class Operators(models.Model):
     id_town = models.ForeignKey(Town, on_delete=models.CASCADE, verbose_name='Municipio')
     id_marital_status = models.ForeignKey(Marital_status, on_delete=models.CASCADE, verbose_name='Estado civil')
     id_education_level = models.ForeignKey(Education_level, on_delete=models.CASCADE, verbose_name='Grado academico')
-    id_status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Status')
+    id_status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Status', default='activo')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
