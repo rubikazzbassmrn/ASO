@@ -13,3 +13,7 @@ values('Facebook'),('Twitter'), ('Indeed'), ('Talenteca'), ('OCC');
 --Tabla truk_type
 insert into catalogues_truck_type(truck_type)
 values('Rigidos'),('Articulado'), ('Frigo´rificos'), ('Cisterna'), ('Cerrado'), ('Doble');
+
+--Tabla Status
+insert into catalogues_status(status)
+values('activo'), ('inactivo');
